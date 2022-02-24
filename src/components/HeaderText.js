@@ -5,9 +5,9 @@ const styles = {
   },
 };
 
-function HeaderText(props) {
+const HeaderText = (props) => {
   const { text, childStyle } = props;
   return <p style={childStyle}>{text}</p>;
-}
+};
 
 export default HeaderText;

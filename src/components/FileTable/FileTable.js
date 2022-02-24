@@ -12,7 +12,7 @@ const styles = (isLargeScreen) => ({
   },
 });
 
-function FileTable(props) {
+const FileTable = (props) => {
   const { data, selectedItems, setSelectedItems, isLargeScreen } = props;
 
   // This function is used for responsive styling, we can let the individual row items determine their width

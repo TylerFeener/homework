@@ -51,7 +51,7 @@ const styles = (isLargeScreen) => ({
   },
 });
 
-function App() {
+const App = () => {
   // selectedItems holds a list of indices of the currently selected files
   const isLargeScreen = useMediaQuery("(min-width:900px)");
   const [selectedItems, setSelectedItems] = useState(new Set([]));
@@ -112,6 +112,6 @@ function App() {
       />
     </div>
   );
-}
+};
 
 export default App;

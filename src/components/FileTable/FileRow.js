@@ -40,7 +40,7 @@ const styles = (isHovered, isSelectable, index, isSelected, isLargeScreen) => ({
   },
 });
 
-function FileRow(props) {
+const FileRow = (props) => {
   const {
     index,
     fileData,

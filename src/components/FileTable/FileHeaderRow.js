@@ -39,7 +39,7 @@ const styles = (isLargeScreen, columnWidth) => ({
   },
 });
 
-function FileHeaderRow(props) {
+const FileHeaderRow = (props) => {
   const { isLargeScreen, getColumnSize } = props;
   return (
     <div style={styles(isLargeScreen).headerRow}>
@@ -71,6 +71,6 @@ function FileHeaderRow(props) {
       />
     </div>
   );
-}
+};
 
 export default FileHeaderRow;

@@ -15,7 +15,7 @@ const styles = (isHovered, disabled) => ({
   },
 });
 
-function DownloadButton(props) {
+const DownloadButton = (props) => {
   const { handleClick, disabled } = props;
   const [isHovered, setIsHovered] = useState(false);
   return (
@@ -32,6 +32,6 @@ function DownloadButton(props) {
       </button>
     </Tooltip>
   );
-}
+};
 
 export default DownloadButton;
