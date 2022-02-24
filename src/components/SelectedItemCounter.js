@@ -1,6 +1,7 @@
 const styles = {
   selectedText: {
     marginLeft: 0,
+    fontFamily: "helvetica",
   },
 };
 

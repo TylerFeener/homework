@@ -6,8 +6,8 @@ const styles = {
 };
 
 function HeaderText(props) {
-  const { text } = props;
-  return <p style={styles.header}>{text}</p>;
+  const { text, childStyle } = props;
+  return <p style={childStyle}>{text}</p>;
 }
 
 export default HeaderText;
