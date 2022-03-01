@@ -3,12 +3,12 @@ import Tooltip from "@mui/material/Tooltip";
 
 const styles = (isHovered, disabled) => ({
   downloadButton: {
-    height: "35px",
+    height: "2.1875em",
     float: "left",
     backgroundColor: isHovered ? (disabled ? "#BABABA" : "lightgrey") : "white",
-    marginLeft: "20px",
+    marginLeft: "1.25em",
     border: `1px solid ${disabled ? "#BABABA" : "grey"}`,
-    borderRadius: "5px",
+    borderRadius: "0.3125em",
     cursor: "pointer",
     color: disabled ? "#BABABA" : "black",
     fontFamily: "helvetica",

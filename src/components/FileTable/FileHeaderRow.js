@@ -1,37 +1,38 @@
-import HeaderText from "../HeaderText";
+import HeaderText from "../Typography/HeaderText";
+import { MediaContext } from "../../App";
 
 const styles = (isLargeScreen, columnWidth) => ({
   headerRow: {
-    height: "50px",
+    height: "3.125em",
     float: "left",
     backgroundColor: "white",
-    marginLeft: "35px",
-    minWidth: isLargeScreen ? "800px" : "500px",
-    maxWidth: isLargeScreen ? "800px" : "500px",
+    marginLeft: " 2.1875em",
+    minWidth: isLargeScreen ? "80%" : "90%",
+    maxWidth: isLargeScreen ? "80%" : "90%",
     direction: "column",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-start",
   },
-  hash: {
+  Hash: {
     minWidth: columnWidth,
     maxWidth: columnWidth,
     fontWeight: "bold",
     fontFamily: "helvetica",
   },
-  fileName: {
+  "File name": {
     minWidth: columnWidth,
     maxWidth: columnWidth,
     fontWeight: "bold",
     fontFamily: "helvetica",
   },
-  countries: {
+  Countries: {
     minWidth: columnWidth,
     maxWidth: columnWidth,
     fontWeight: "bold",
     fontFamily: "helvetica",
   },
-  status: {
+  Status: {
     minWidth: columnWidth,
     maxWidth: columnWidth,
     fontWeight: "bold",
@@ -39,37 +40,31 @@ const styles = (isLargeScreen, columnWidth) => ({
   },
 });
 
+// The file header row is simply the row of headers at the top of the table.
 const FileHeaderRow = (props) => {
-  const { isLargeScreen, getColumnSize } = props;
+  const { getColumnSize } = props;
   return (
-    <div style={styles(isLargeScreen).headerRow}>
-      {/** We reuse header text components for each header, along with responsive styling */}
-      <HeaderText
-        text="Hash"
-        childStyle={
-          styles(isLargeScreen, getColumnSize("hash", isLargeScreen)).hash
-        }
-      />
-      <HeaderText
-        text="File name"
-        childStyle={
-          styles(isLargeScreen, getColumnSize("path", isLargeScreen)).fileName
-        }
-      />
-      <HeaderText
-        text="Countries"
-        childStyle={
-          styles(isLargeScreen, getColumnSize("countries", isLargeScreen))
-            .countries
-        }
-      />
-      <HeaderText
-        text="Status"
-        childStyle={
-          styles(isLargeScreen, getColumnSize("status", isLargeScreen)).status
-        }
-      />
-    </div>
+    <MediaContext.Consumer>
+      {(isLargeScreen) => (
+        <div style={styles(isLargeScreen).headerRow}>
+          {/** We reuse header text components for each header, along with responsive styling */}
+          {["Hash", "File name", "Countries", "Status"].map(
+            (columnTitle, i) => (
+              <HeaderText
+                text={columnTitle}
+                childStyle={
+                  styles(
+                    isLargeScreen,
+                    getColumnSize(columnTitle, isLargeScreen)
+                  )[columnTitle]
+                }
+                key={columnTitle + i}
+              />
+            )
+          )}
+        </div>
+      )}
+    </MediaContext.Consumer>
   );
 };
 
